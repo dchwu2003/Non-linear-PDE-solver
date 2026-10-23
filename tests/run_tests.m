@@ -36,9 +36,7 @@ function report = run_tests(output_dir, make_plots)
     cleanup = onCleanup(@() warning(saved_warning.state,'pde:NotConverged'));
     warning('off','pde:NotConverged');
     slow = opts; slow.relaxation = 1e-12;
-    lastwarn('');
     [~,failed] = Nonlinear_iteration(initial,0.2,h,p,Nx,Ny,g,g,left,right,1,1e-6,slow);
-    [~,warning_id] = lastwarn(); %#ok<ASGLU>
     assert(~failed.converged && failed.relative_update(end)<1e-6 && ...
         failed.residual(end)>slow.residual_tolerance,'False convergence regression.');
     clear cleanup;
