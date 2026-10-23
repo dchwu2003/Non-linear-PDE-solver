@@ -1,0 +1,29 @@
+name: Numerical validation
+on:
+  pull_request:
+  push:
+    branches: [main, 'codex/**']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  matlab:
+    name: MATLAB R2024b
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: matlab-actions/setup-matlab@v2
+        with:
+          release: R2024b
+      - name: Numerical regression tests and reproducible example
+        uses: matlab-actions/run-command@v2
+        with:
+          command: addpath('tests'); run_tests('results',true); run_example('results',true);
+      - name: Save diagnostics and figures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: matlab-validation
+          path: results/
+          if-no-files-found: ignore
