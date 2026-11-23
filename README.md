@@ -123,7 +123,7 @@ U = reshape(u, Nx, Ny); % x is the first dimension
 ## Contributors and provenance
 
 - Team project at the Laboratory of Geometry at Michigan (LoG(M)), Fall 2025. Poster presented December 2025. Mentor: Tian Jing.
-- Daocheng Wu: finite-difference discretization and sparse-matrix code; maintenance and final checks; prepared this public release (October 2026) with AI coding assistance, which fixed an error in the iteration, combined the shared grid operator into one routine, added tests and CI, and wrote documentation.
+- Daocheng Wu: finite-difference discretization and sparse-matrix code; maintenance and final checks. Prepared this public release  with AI coding assistance: fixed an error in the iteration, combined the shared grid operator into one routine, added tests and CI, and wrote the documentation.
 - Other team members: Jiayi Tang, Shen Chang, Yu Wang, Yiling Chen.
 
 The original README links to the [University of Michigan GitLab project](https://gitlab.umich.edu/logm/Fall25/nonlinear-pde-final-code/matlab-code-for-pde.git). This GitHub repository holds the MATLAB code and the scripts that reproduce the results.
