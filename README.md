@@ -26,7 +26,7 @@ The default example sets $u=1$ on the left edge and $u=-1$ on the right edge. On
 
 [docs/numerical-method.md](docs/numerical-method.md) has the formulas and the standard names for these steps.
 
-This release now uses the poster's boundary values, +1 on the left and −1 on the right. Like the poster, the solution has two flat states, u ≈ 1 and u ≈ −1, with a thin layer between them at the middle of the domain (x ≈ 3). The release still differs from the poster in ε (lowered to 0.05 instead of 0.01) and in the grid (121×61 instead of 320×270).
+This release uses the poster's boundary values, +1 on the left and −1 on the right. Like the poster, the solution has two flat states, u ≈ 1 and u ≈ −1, with a thin layer between them at the middle of the domain (x ≈ 3). The release still differs from the poster in ε (lowered to 0.05 instead of 0.01) and in the grid (121×61 instead of 320×270).
 
 The default boundary data do not depend on y, so the default solution does not depend on y either. Its plot therefore does not exercise the y direction of the code. A separate test problem whose solution varies in y covers that.
 
