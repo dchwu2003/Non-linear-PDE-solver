@@ -27,7 +27,7 @@ Full-precision data: [analytic.csv](data/analytic.csv) (x-only test), [manufactu
 
 The example uses 121 x 61 nodes on `[0,6] x [0,5]`, left/right values 1 and -1, zero y derivatives on the top and bottom, relaxation 0.5, relative update tolerance `1e-8`, and absolute residual tolerance `1e-7`. Every ε value is solved. The change in the solution from one ε to the next is recorded but is not used to stop.
 
-The boundary values match the December 2025 poster (+1/−1). The ε range and grid differ from the poster's run (ε down to 0.01, 320×270 grid).
+The boundary values match the December 2025 poster (+1/−1). The ε range and grid differ from the poster's run (ε down to 0.01, 320×270 grid). The poster's results stopped each ε once the relative change was below 1e-3 (at most 30 iterations). This run extends them with the tighter tolerances above.
 
 | ε | Iterations | Final residual | Maximum cell Péclet number |
 |---|---:|---:|---:|
