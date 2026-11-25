@@ -1,10 +1,10 @@
 function config = default_config()
 %DEFAULT_CONFIG Reproducible demonstration for the nonlinear equation.
-    config.Nx = 121;
-    config.Ny = 61;
+    config.Nx = 320;
+    config.Ny = 270;
     config.Lx = 6;
     config.Ly = 5;
-    config.epsilon = linspace(0.1,0.05,5);
+    config.epsilon = linspace(0.1,0.01,10);
     config.left = 1;
     config.right = -1;
     config.max_iterations = 1000;
