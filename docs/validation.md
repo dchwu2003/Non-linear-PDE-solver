@@ -5,7 +5,7 @@ All results below come from **MATLAB 24.2.0.3361896 (R2024b), Update 10**, on an
 - Grid refinement tests: [CI run](https://github.com/dchwu2003/Non-linear-PDE-solver/actions/runs/40029637502) on 2026-10-23, code version [`3a89a08501076936d17c97f0cd1213e4c75a5bb1`](https://github.com/dchwu2003/Non-linear-PDE-solver/commit/3a89a08501076936d17c97f0cd1213e4c75a5bb1).
 - Default example: [CI run](https://github.com/dchwu2003/Non-linear-PDE-solver/actions/runs/45551286221) on 2026-11-25, code version [`d9217f36a020086f1d1273389697eb9511c7196d`](https://github.com/dchwu2003/Non-linear-PDE-solver/commit/d9217f36a020086f1d1273389697eb9511c7196d), after the default right boundary value was changed from -1.1 to -1. The test problems do not use the default boundary values. This run reproduced the grid refinement table below to the digits shown.
 
-Both runs passed the tests and the full example, including figure generation. The CSV files and figures in this repository are copies of that run's output, not hand-made examples. Running the commands in the README writes new outputs to `results/` and does not overwrite these copies.
+Both runs passed the tests and the full example, including figure generation. The CSV files and figures in this repository are copies of those runs' output, not hand-made examples. Running the commands in the README writes new outputs to `results/` and does not overwrite these copies.
 
 ## Grid refinement at fixed ε
 
