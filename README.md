@@ -16,7 +16,7 @@ $$u u_x-u_{yy}-\varepsilon u_{xx}=0$$
 
 on a grid with finite differences.
 
-The default example sets $u=1$ on the left edge and $u=-1.1$ on the right edge. On the top and bottom edges, $u_y=0$.
+The default example sets $u=1$ on the left edge and $u=-1$ on the right edge. On the top and bottom edges, $u_y=0$.
 
 ## Method
 
@@ -26,7 +26,7 @@ The default example sets $u=1$ on the left edge and $u=-1.1$ on the right edge. 
 
 [docs/numerical-method.md](docs/numerical-method.md) has the formulas and the standard names for these steps.
 
-The poster's run used boundary values +1 and −1, with ε lowered to 0.01 on a 320×270 grid. This release's default demonstration uses different settings (−1.1 on the right, ε down to 0.05, 121×61 grid).
+This release now uses the poster's boundary values, +1 on the left and −1 on the right. Like the poster, the solution has two flat states, u ≈ 1 and u ≈ −1, with a thin layer between them at the middle of the domain (x ≈ 3). The release still differs from the poster in ε (lowered to 0.05 instead of 0.01) and in the grid (121×61 instead of 320×270).
 
 The default boundary data do not depend on y, so the default solution does not depend on y either. Its plot therefore does not exercise the y direction of the code. A separate test problem whose solution varies in y covers that.
 
@@ -84,7 +84,7 @@ Edit `default_config.m` to change the example:
 | Grid nodes `Nx`, `Ny` | 121, 61 |
 | Domain lengths `Lx`, `Ly` | 6, 5 |
 | ε values | `linspace(0.1,0.05,5)` |
-| Left/right boundary values | 1, −1.1 |
+| Left/right boundary values | 1, −1 |
 | Maximum iterations per ε | 1000 |
 | Relative update tolerance | `1e-8` |
 | Absolute residual tolerance | `1e-7` |
