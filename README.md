@@ -16,23 +16,23 @@ $$u u_x-u_{yy}-\varepsilon u_{xx}=0$$
 
 on a grid with finite differences.
 
-The default example sets $u=1$ on the left edge and $u=-1.1$ on the right edge. On the top and bottom edges, $u_y=0$.
+The default example sets $u=1$ on the left edge and $u=-1$ on the right edge. On the top and bottom edges, $u_y=0$.
 
 ## Method
 
 1. Start from the solution of a linear version of the problem, which leaves out the $u u_x$ term.
 2. Fix the current $u$ in the nonlinear term, so that the equation becomes linear. Solve the resulting sparse linear system. Take half a step from the old solution toward the new one. Repeat until the solution stops changing and the equation is satisfied to a small tolerance.
-3. Lower $\varepsilon$ step by step, from 0.1 to 0.05 over five values. Each step starts from the solution of the previous one. The grid stays the same.
+3. Lower $\varepsilon$ step by step, from 0.1 to 0.01 over ten values. Each step starts from the solution of the previous one. The grid stays the same.
 
 [docs/numerical-method.md](docs/numerical-method.md) has the formulas and the standard names for these steps.
 
-The poster's run used boundary values +1 and −1, with ε lowered to 0.01 on a 320×270 grid. This release's default demonstration uses different settings (−1.1 on the right, ε down to 0.05, 121×61 grid).
+This release uses the poster's setup: boundary values +1 on the left and −1 on the right, a 320×270 grid, and ε lowered from 0.1 to 0.01. Like the poster, the solution has two flat states, u ≈ 1 and u ≈ −1, with a thin layer between them at the middle of the domain (x ≈ 3). The poster's results used a looser stopping rule: the iteration stopped once the relative change was below 1e-3, with at most 30 iterations per ε. Building on those results, this release solves each ε more tightly: relative update below 1e-8 and residual below 1e-7, with at most 1000 iterations per ε.
 
 The default boundary data do not depend on y, so the default solution does not depend on y either. Its plot therefore does not exercise the y direction of the code. A separate test problem whose solution varies in y covers that.
 
 ## Results
 
-We used two test problems with known exact solutions, one depending only on x and one depending on both x and y. On both, the error shrinks at the expected second-order rate as the grid is refined: observed orders were 1.993–2.002 and 2.001–2.004 in MATLAB R2024b. At each of the five ε values in the default example, the iteration brought the equation residual below `1e-7`. These checks cover the test problems only. They do not show how accurate the grid is for the thin transition layer in the default example.
+We used two test problems with known exact solutions, one depending only on x and one depending on both x and y. On both, the error shrinks at the expected second-order rate as the grid is refined: observed orders were 1.993–2.002 and 2.001–2.004 in MATLAB R2024b. At each of the ten ε values in the default example, the iteration brought the equation residual below `1e-7`. These checks cover the test problems only. They do not show how accurate the grid is for the thin transition layer in the default example.
 
 ![Error versus grid size at fixed epsilon](docs/figures/grid_convergence.png)
 
@@ -81,10 +81,10 @@ Edit `default_config.m` to change the example:
 
 | Parameter | Default |
 |---|---:|
-| Grid nodes `Nx`, `Ny` | 121, 61 |
+| Grid nodes `Nx`, `Ny` | 320, 270 |
 | Domain lengths `Lx`, `Ly` | 6, 5 |
-| ε values | `linspace(0.1,0.05,5)` |
-| Left/right boundary values | 1, −1.1 |
+| ε values | `linspace(0.1,0.01,10)` |
+| Left/right boundary values | 1, −1 |
 | Maximum iterations per ε | 1000 |
 | Relative update tolerance | `1e-8` |
 | Absolute residual tolerance | `1e-7` |
